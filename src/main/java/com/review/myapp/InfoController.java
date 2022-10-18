@@ -33,4 +33,17 @@ public class InfoController {
 
 	    return mav;
 	}
+	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public ModelAndView detail(@RequestParam Map<String, Object> map) {
+	    Map<String, Object> detailMap = this.reviewService.detail(map);
+
+	    ModelAndView mav = new ModelAndView();
+	    mav.addObject("data", detailMap);
+	    String reviewId = map.get("reviewId").toString();
+	    mav.addObject("reviewId", reviewId);
+	    mav.setViewName("/review/detail");
+	    return mav;
+	}
+	
 }

@@ -17,6 +17,12 @@ public class ReviewServiceImpl implements ReviewService {
 	        return map.get("review_id").toString();
 	    }
 	    return null;
-
+	}
+	
+	@Override
+	public Map<String, Object> detail(Map<String, Object> map){
+		// System.out.println(map);
+		return this.reviewDao.selectDetail(map);
+	    
 	}
 }
